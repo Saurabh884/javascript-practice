@@ -298,21 +298,247 @@
 
 //10. Move All Zeros to End
 
-const arr = [2, 3, 0, 1, 5, 0, 9, 0];
+// const arr = [2, 3, 0, 1, 5, 0, 9, 0];
 
-const moveAllZero = (arr) => {
+// const moveAllZero = (arr) => {
+//   let result = [];
+
+//   for (let num of arr) {
+//     if (num !== 0) {
+//       result.push(num);
+//     }
+//   }
+
+//   while (result.length < arr.length) {
+//     result.push(0);
+//   }
+//   return result;
+// };
+
+// console.log(moveAllZero(arr));
+
+//--------------------------------------------------------------------------------------->
+
+// 11. Find Intersection of Two Arrays
+
+// const arr1 = [1, 2, 3, 4];
+// const arr2 = [3, 4, 5, 6];
+
+// const res = arr1.filter((elem) => arr2.includes(elem));
+// console.log(res);
+
+//------------------------------------------------------------------>
+
+// 12. Find Union of Two Arrays
+
+// const arr1 = [1, 2];
+// const arr2 = [2, 3, 4];
+
+// const combinedArray = new Set([...arr1, ...arr2]);
+// const res1 = [...combinedArray];
+// const res2 = Array.from(combinedArray);
+// console.log(res1, res2);
+
+//------------------------------------------------------------------>
+
+// 13. Find Frequency of Elements in an array
+
+// const arr = [2, 2, 3, 3, 3, 4, 4, 4, 4, 1];
+
+// const findFrequency = (arr) => {
+//   let obj = {};
+
+//   for (let i = 0; i < arr.length; i++) {
+//     obj[arr[i]] = (obj[arr[i]] || 0) + 1;
+//   }
+//   return obj;
+// };
+// console.log(findFrequency(arr));
+
+//14. Find maximum occuring element in an array
+
+// const arr = [2, 5, 7, 11, 2, 11, 4, 11, 5, 11];
+
+// const findMaxOccElem = (arr) => {
+//   let obj = {};
+//   let maxOcc = Number.NEGATIVE_INFINITY;
+//   let maxElem = Number.NEGATIVE_INFINITY;
+
+//   for (let elem of arr) {
+//     obj[elem] = (obj[elem] || 0) + 1;
+//   }
+
+//   for (let key in obj) {
+//     if (obj[key] > maxOcc) {
+//       maxOcc = obj[key];
+//       maxElem = key;
+//     }
+//   }
+//   return maxElem;
+// };
+
+// console.log(findMaxOccElem(arr));
+
+//------------------------------------------------------------------------->
+
+// 15) - Two Sum
+// Given an array of integers nums and an integer target,
+// return indices of the two numbers such that they add up to target.
+
+// Input: nums = [2,7,11,15], target = 9
+// Output: [0,1] (Because nums[0] + nums[1] == 9, we return [0, 1])
+// Input: nums = [3, 2, 4], target = 6
+// Output: [1, 2]
+
+// let nums = [2, 7, 11, 15];
+// let target = 9;
+
+// const twoSum = (nums, target) => {
+//   let obj = {};
+
+//   for (let i = 0; i < nums.length; i++) {
+//     let n = nums[i];
+//     if (obj[target - n] >= 0) {
+//       return [obj[target - n], i];
+//     } else {
+//       obj[n] = i;
+//     }
+//   }
+// };
+
+// console.log(twoSum(nums, target));
+
+//------------------------------------------------------------>
+
+// 16. Kadane’s Algorithm (Maximum Subarray Sum)
+// Note - i always starts with 1å
+
+// const arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+
+// const maxSumofSubarry = (arr) => {
+//   let currentSum = arr[0];
+//   let maxSum = arr[0];
+
+//   for (let i = 1; i < arr.length; i++) {
+//     currentSum = Math.max(arr[i], currentSum + arr[i]);
+//     maxSum = Math.max(maxSum, currentSum);
+//   }
+//   return maxSum;
+// };
+
+// console.log(maxSumofSubarry(arr));
+
+//--------------------------------------------------------------------------------->
+
+// 17. Best Time to Buy and Sell Stock
+//Note when price will be min and profit will be max
+
+// const prices = [7, 1, 5, 3, 6, 4];
+
+// const bestTime = (prices) => {
+//   let profit = 0;
+//   let minPrice = Infinity;
+
+//   for (let price of prices) {
+//     minPrice = Math.min(minPrice, price);
+//     profit = Math.max(profit, price - minPrice);
+//   }
+//   return profit;
+// };
+
+// console.log(bestTime(prices));
+
+//18 Merge Two Sorted Arrays
+
+//1st Approach
+
+// const arr1 = [1, 3, 5];
+// const arr2 = [2, 4, 6];
+
+// const mergedArray = [...arr1, ...arr2].sort((a, b) => {
+//   return a - b;
+// });
+// console.log(mergedArray);
+
+//2nd approach
+//Note run 3 while loop
+
+// const arr1 = [1, 3, 5];
+// const arr2 = [2, 4, 6];
+
+// let i = 0;
+// let j = 0;
+// let sortedArray = [];
+
+// while (i < arr1.length && j < arr2.length) {
+//   if (arr1[i] < arr2[j]) {
+//     sortedArray.push(arr1[i]);
+//     i++;
+//   } else {
+//     sortedArray.push(arr2[j]);
+//     j++;
+//   }
+// }
+
+// while (i < arr1.length) {
+//   sortedArray.push(arr1[i++]);
+// }
+
+// while (j < arr2.length) {
+//   sortedArray.push(arr2[j++]);
+// }
+
+// console.log(sortedArray);
+
+//---------------------------------------------------------------------->
+
+// 19.Binary Search of in sorted array
+
+// const arr = [1, 2, 3, 4, 5, 6, 7];
+// const target = 5;
+
+// const findTarget = (arr, target) => {
+//   let left = 0;
+//   let right = arr.length;
+
+//   while (left <= right) {
+//     let mid = Math.floor((left + right) / 2);
+//     if (arr[mid] === target) {
+//       return mid;
+//     } else if (arr[mid] < target) {
+//       left = mid + 1;
+//     } else {
+//       right = mid - 1;
+//     }
+//   }
+//   return -1;
+// };
+// console.log(findTarget(arr, target));
+
+//--------------------------------------------------------------------->
+
+// 20. Flatten Nested Array
+
+//1st approach
+
+// const arr = [1, [2, [3, 4]], 5];
+
+// const flattenedArr = arr.flat(2);
+// console.log(flattenedArr);
+
+//2nd approach
+const arr = [1, [2, [3, 4]], 5];
+
+const flattenedArr = (arr) => {
   let result = [];
 
   for (let num of arr) {
-    if (num !== 0) {
+    if (Array.isArray(num)) {
+      result = result.concat(flattenedArr(num));
+    } else {
       result.push(num);
     }
   }
-
-  while (result.length < arr.length) {
-    result.push(0);
-  }
   return result;
 };
-
-console.log(moveAllZero(arr));
+console.log(flattenedArr(arr));
