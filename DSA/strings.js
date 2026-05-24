@@ -77,3 +77,21 @@
 
 // const res = isAnagram(s, t);
 // console.log(res);
+
+//5) Count number of vowels from the string considering upeercase and lowerCase;
+
+let str = "hello";
+
+const countVowels = (str) => {
+  const vovels = "aeiouAEIOU";
+  let count = 0;
+
+  for (let char of str) {
+    if (vovels.includes(char)) {
+      count++;
+    }
+  }
+  return count;
+};
+
+console.log(countVowels(str));
