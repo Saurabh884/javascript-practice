@@ -1,10 +1,10 @@
-//// Ques 1 : Reverse a string
+// Ques 1 : Reverse a string
 
 // let str = "abcde";
 // const reverse = str.split("").reverse().join("");
 // console.log(reverse);
 
-//end----
+//------------------------------------------------------------------------------->
 
 //// Ques 2 : Check palindrome
 
@@ -15,7 +15,7 @@
 // const res = isPalindrome(str);
 // console.log(res);
 
-//end-----
+//------------------------------------------------------------------------------->
 
 //// Ques 3 : Truncate the text
 // Write a function called truncate that checks the length of a given string - str, and if
@@ -33,6 +33,8 @@
 // };
 // const output = truncateText(str, maxlength);
 // console.log(output);
+
+//------------------------------------------------------------------------------->
 
 //// Ques 4  Valid Anagram
 
@@ -78,20 +80,139 @@
 // const res = isAnagram(s, t);
 // console.log(res);
 
+//------------------------------------------------------------------------------->
+
 //5) Count number of vowels from the string considering upeercase and lowerCase;
 
-let str = "hello";
+// let str = "hello";
 
-const countVowels = (str) => {
-  const vovels = "aeiouAEIOU";
-  let count = 0;
+// const countVowels = (str) => {
+//   const vovels = "aeiouAEIOU";
+//   let count = 0;
 
-  for (let char of str) {
-    if (vovels.includes(char)) {
-      count++;
-    }
-  }
-  return count;
-};
+//   for (let char of str) {
+//     if (vovels.includes(char)) {
+//       count++;
+//     }
+//   }
+//   return count;
+// };
 
-console.log(countVowels(str));
+// console.log(countVowels(str));
+
+//------------------------------------------------------------------------------->
+
+//6. Remove Duplicate Characters
+// Input: "programming"
+// Output: "progamin"
+
+//1st approach - using creating objects and pushing uniques to array
+
+// const str = "programming";
+
+// const removeDuplicates = (str) => {
+//   let uniq = [];
+
+//   let obj = {};
+
+//   for (let char of str) {
+//     if (!obj[char]) {
+//       obj[char] = true;
+//       uniq.push(char);
+//     }
+//   }
+//   return uniq.join("");
+// };
+// console.log(removeDuplicates(str));
+
+//2nd approach - By set
+
+// const str = "programming";
+
+// const res = Array.from(new Set(str)).join("");
+// const res = [...new Set(str)].join("");
+// console.log(res);
+
+//------------------------------------------------------------------------->
+
+// 7. Count Character Frequency
+
+// const str = "hello";
+
+// const countFreq = (str) => {
+//   let obj = {};
+
+//   for (let char of str) {
+//     obj[char] = (obj[char] || 0) + 1;
+//   }
+//   return obj;
+// };
+
+// console.log(countFreq(str));
+
+//------------------------------------------------------------------------>
+
+// 9. Longest Word in Sentence
+
+// Input: "I love javascript programming"
+// Output: "programming"
+
+// let str = "I love javascript programming";
+
+// const findLongest = (str) => {
+//   const strArr = str.split(" ");
+//   let longest = "";
+
+//   for (let char of strArr) {
+//     if (char.length > longest.length) {
+//       longest = char;
+//     }
+//   }
+//   return longest;
+// };
+
+// console.log(findLongest(str));
+
+//---------------------------------------------------------------------->
+
+// 10 Reverse Words in Sentence
+
+// Input: "I love JavaScript"
+
+// Output: "JavaScript love I"
+
+// let sentence = "I love javascript";
+
+// const reverse = (sentence) => {
+//   let arr = sentence.split(" ").reverse().join(" ");
+//   return arr;
+// };
+// console.log(reverse(sentence));
+
+//---------------------------------------------------------------------->
+
+//11 First Non-Repeated Character/ unique character
+
+// Input: "aabbcddee"
+// Output: "c"
+
+// let input = "aabbcddee";
+// const findUniqChar = (input) => {
+//   let obj = {};
+//   let arr = [];
+
+//   for (let char of input) {
+//     obj[char] = (obj[char] || 0) + 1;
+//   }
+
+//   for (let key in obj) {
+//     if (obj[key] === 1) {
+//       return key;
+//     }
+//   }
+//   return null;
+// };
+
+// console.log(findUniqChar(input));
+
+//------------------------------------------------------------------->
