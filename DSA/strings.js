@@ -216,3 +216,245 @@
 // console.log(findUniqChar(input));
 
 //------------------------------------------------------------------->
+
+//12) Find Maximum Occurring Character in string
+//Input: "javascript"
+
+//Output: "a"
+
+//1st approach
+
+// const str = "javascript";
+
+// const findMaxOccurChar = (str) => {
+//   let obj = {};
+//   let maxChar = "";
+//   let maxCount = 0;
+
+//   for (let char of str) {
+//     obj[char] = (obj[char] || 0) + 1;
+//   }
+
+//   console.log(obj);
+
+//   for (key in obj) {
+//     if (obj[key] > maxCount) {
+//       maxCount = obj[key];
+//       maxChar = key;
+//     }
+//   }
+//   return maxChar;
+// };
+
+// console.log(findMaxOccurChar(str));
+
+//2nd approach
+
+// const input = "javascript";
+
+// const result = input.split("").reduce(
+//   (acc, elem) => {
+//     acc[elem] = (acc[elem] || 0) + 1;
+
+//     if (acc[elem] > acc.maxCount) {
+//       acc.maxCount = acc[elem];
+//       acc.maxChar = elem;
+//     }
+
+//     return acc;
+//   },
+//   {
+//     maxChar: "",
+//     maxCount: 0,
+//   },
+// );
+
+// console.log(result.maxChar);
+
+//------------------------------------------------------------------->
+
+//13) Capitalize First Letter of Each Word
+
+// Input: "hello world"
+// Output: "Hello World"
+
+//1st approach
+
+// let input = "hello world";
+
+// const capitalize = (str) => {
+//   const words = str.split(" ");
+//   let res = [];
+
+//   for (let word of words) {
+//     res.push(word[0].toUpperCase() + word.slice(1));
+//   }
+
+//   return res.join(" ");
+// };
+// console.log(capitalize(input));
+
+//2nd approach
+
+// function capitalizeWords(str) {
+//   return str
+//     .split(" ")
+//     .map((word) => word[0].toUpperCase() + word.slice(1))
+//     .join(" ");
+// }
+
+// console.log(capitalizeWords("hello world"));
+
+//--------------------------------------------------------------------------->
+
+//14 Check if String Contains Substring
+
+// Input: "javascript", "script"
+// Output: true
+
+// let str = "javascript";
+// let sub = "script";
+
+// const hasSubstring = (str, sub) => {
+//   return str.includes(sub);
+// };
+// console.log(hasSubstring(str, sub));
+
+//----------------------------------------------------------------------------->
+
+//15) String Compression
+
+// Input: "aaabbcc"
+// Output: "a3b2c2"
+
+// let input = "aaabbcc";
+
+// const compress = (str) => {
+//   let compressed = "";
+//   let count = 1;
+
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] === str[i + 1]) {
+//       count++;
+//     } else {
+//       compressed += str[i] + count;
+//       count = 1;
+//     }
+//   }
+//   return compressed;
+// };
+// console.log(compress(input));
+
+//---------------------------------------------------------------------------------------->
+
+//16) Check Rotation of String
+
+// Rotation means:
+
+// Take some characters from the beginning of a string,Move them to the end Without changing their order
+
+// Example with "abcd":
+
+// abcd
+// bcda
+// cdab
+// dabc
+
+// Input:
+// str1 = "abcd"
+// str2 = "cdab"
+
+// Output: true
+
+// function isRotation(str1, str2) {
+//   return str1.length === str2.length && (str1 + str1).includes(str2);
+// }
+
+// console.log(isRotation("abcd", "cdab"));
+
+//-------------------------------------------------------------------------------->
+
+//17)Find All Substrings
+// Input: "abc";
+
+// Output: a;
+// ab;
+// abc;
+// b;
+// bc;
+// c;
+
+// function getSubstrings(str) {
+//   const result = [];
+
+//   for (let i = 0; i < str.length; i++) {
+//     for (let j = i + 1; j <= str.length; j++) {
+//       result.push(str.slice(i, j));
+//     }
+//   }
+
+//   return result;
+// }
+
+// console.log(getSubstrings("abc"));
+
+//-------------------------------------------------------------------------->
+
+//18 Longest Substring Without Repeating Characters
+// Input: "abcabcbb";
+// Output: 3;
+
+// function longestUniqueSubstring(str) {
+//   let set = new Set();
+//   let left = 0;
+//   let max = 0;
+
+//   for (let right = 0; right < str.length; right++) {
+//     while (set.has(str[right])) {
+//       set.delete(str[left]);
+//       left++;
+//     }
+
+//     set.add(str[right]);
+
+//     max = Math.max(max, right - left + 1);
+//   }
+
+//   return max;
+// }
+
+// console.log(longestUniqueSubstring("abcabcbb"));
+
+//-------------------------------------------------------------------------->
+
+//19) Check Valid Parentheses
+
+// Input: "()[]{}";
+// Output: true;
+
+function isValid(str) {
+  const stack = [];
+  const map = {
+    ")": "(",
+    "}": "{",
+    "]": "[",
+  };
+
+  for (let char of str) {
+    if (char === "(" || char === "{" || char === "[") {
+      stack.push(char);
+    } else {
+      const top = stack.pop();
+
+      if (top !== map[char]) {
+        return false;
+      }
+    }
+  }
+
+  return stack.length === 0;
+}
+
+console.log(isValid("()[]{}"));
+
+//-------------------------------------------------------------------------->
