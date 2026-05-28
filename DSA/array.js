@@ -411,7 +411,7 @@
 //------------------------------------------------------------>
 
 // 16. Kadane’s Algorithm (Maximum Subarray Sum)
-// Note - i always starts with 1å
+// Note - i always starts with 1
 
 // const arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 
@@ -492,7 +492,7 @@
 
 //---------------------------------------------------------------------->
 
-// 19.Binary Search of in sorted array
+// 19.Binary Search of in sorted array - find index of target
 
 // const arr = [1, 2, 3, 4, 5, 6, 7];
 // const target = 5;
